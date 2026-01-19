@@ -8,7 +8,11 @@ function applyCustomSort() {
     const cmp =
       compareFunction ??
       function (s1, s2) {
-        return s1.toString() > s2.toString() ? 1 : -1;
+        return s1?.toString() > s2?.toString()
+          ? 1
+          : s1?.toString() < s2?.toString()
+            ? -1
+            : 0;
       };
 
     for (let i = 0; i < this.length - 1; i++) {

@@ -8,6 +8,10 @@ function applyCustomSort() {
     const cmp =
       compareFunction ??
       function (s1, s2) {
+        if (s1 === null || s2 === undefined) {
+          return 1;
+        }
+
         return s1?.toString() > s2?.toString()
           ? 1
           : s1?.toString() < s2?.toString()
